@@ -1,0 +1,47 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+#
+# Deploys the FastAPI backend from the /backend directory as a free-tier
+# web service. The Next.js frontend is NOT deployed here — it lives on
+# Netlify and must set NEXT_PUBLIC_API_URL to this service's public URL.
+#
+# NOTE: The free plan sleeps after ~15 min idle. First request after a
+# sleep takes 30-60s (cold start). Fine for a prototype; upgrade to
+# Starter plan before going live with real applicants.
+
+services:
+  - type: web
+    name: bella-amebr-backend
+    runtime: python
+    region: singapore
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: APP_NAME
+        value: Bella Korea Ambassador API
+      - key: DEBUG
+        value: "false"
+      - key: DATABASE_URL
+        value: sqlite:///./bella.db
+      - key: CORS_ORIGINS
+        value: https://funny-lebkuchen-57b10a.netlify.app,http://localhost:3000
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USE_TLS
+        value: "true"
+      - key: SMTP_USER
+        value: kataroteno@gmail.com
+      - key: MAIL_FROM
+        value: kataroteno@gmail.com
+      - key: MAIL_TO
+        value: kataroteno@gmail.com
+      # SMTP_PASSWORD intentionally NOT in this file — set it manually in
+      # the Render dashboard (Environment tab) so the secret never reaches
+      # the public git repo.
+      - key: SMTP_PASSWORD
+        sync: false
