@@ -30,9 +30,10 @@ services:
         value: https://funny-lebkuchen-57b10a.netlify.app,http://localhost:3000
       # Resend (HTTP email API) — required on Render because the free tier
       # blocks outbound SMTP. Set RESEND_API_KEY manually in the dashboard
-      # so the secret never hits the public git repo.
+      # so the secret never hits the public git repo. Sender uses the
+      # renovoh.net domain, which is already verified in the Resend account.
       - key: RESEND_FROM
-        value: onboarding@resend.dev
+        value: Bella Korea Ambassador <no-reply@renovoh.net>
       - key: RESEND_API_KEY
         sync: false
       - key: MAIL_TO
