@@ -1,0 +1,4 @@
+# Pin Python version for Railway / Nixpacks builds so the deployed
+# runtime matches local development (Python 3.13).
+[variables]
+NIXPACKS_PYTHON_VERSION = "3.13"
