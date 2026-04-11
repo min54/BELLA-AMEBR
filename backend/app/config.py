@@ -22,7 +22,12 @@ class Settings(BaseSettings):
     # CORS (comma-separated list of allowed origins)
     cors_origins: str = "http://localhost:3000"
 
-    # SMTP — all optional. If any of host/user/password is missing, mail is skipped.
+    # Resend (HTTP API) — preferred for production hosts that block outbound
+    # SMTP. When resend_api_key is set, mailer uses Resend and ignores SMTP.
+    resend_api_key: str | None = None
+    resend_from: str = "onboarding@resend.dev"
+
+    # SMTP — local-dev fallback. Used only if resend_api_key is not set.
     smtp_host: str | None = None
     smtp_port: int = 587
     smtp_user: str | None = None
@@ -43,7 +48,7 @@ class Settings(BaseSettings):
         return [addr.strip() for addr in self.mail_to.split(",") if addr.strip()]
 
     @property
-    def mail_enabled(self) -> bool:
+    def smtp_enabled(self) -> bool:
         return bool(
             self.smtp_host
             and self.smtp_user
@@ -51,6 +56,14 @@ class Settings(BaseSettings):
             and self.mail_from
             and self.mail_to_list
         )
+
+    @property
+    def resend_enabled(self) -> bool:
+        return bool(self.resend_api_key and self.mail_to_list)
+
+    @property
+    def mail_enabled(self) -> bool:
+        return self.resend_enabled or self.smtp_enabled
 
 
 @lru_cache
