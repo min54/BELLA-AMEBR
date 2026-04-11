@@ -1,0 +1,16 @@
+# Netlify configuration for the Next.js frontend.
+# The FastAPI backend is NOT deployed here — host it separately
+# (Railway/Render/Fly.io) and set NEXT_PUBLIC_API_URL in the Netlify
+# site environment variables to its public URL.
+
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--no-audit --no-fund"
+
+# Netlify auto-detects Next.js 15 and installs @netlify/plugin-nextjs,
+# so no explicit plugin block is required.
