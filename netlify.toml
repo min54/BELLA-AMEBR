@@ -6,11 +6,17 @@
 [build]
   base = "frontend"
   command = "npm run build"
-  publish = ".next"
+  # NOTE: Do not set `publish` here. @netlify/plugin-nextjs manages the
+  # publish directory automatically and wires up Next.js server routes
+  # as serverless functions. Setting publish=".next" causes Netlify to
+  # serve the raw build output as static files, which 404s every route.
 
 [build.environment]
   NODE_VERSION = "20"
   NPM_FLAGS = "--no-audit --no-fund"
 
-# Netlify auto-detects Next.js 15 and installs @netlify/plugin-nextjs,
-# so no explicit plugin block is required.
+# Explicitly require the Next.js runtime plugin. Netlify usually auto-
+# installs this when it detects Next.js, but pinning it here removes
+# any ambiguity in monorepo builds.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
