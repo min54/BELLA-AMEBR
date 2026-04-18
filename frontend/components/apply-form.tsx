@@ -18,6 +18,7 @@ export function ApplyForm() {
   const schema = z.object({
     name: z.string().trim().min(1, t.validationName),
     sns_handle: z.string().trim().min(1, t.validationSns),
+    email: z.string().trim().email(t.validationEmail),
     reason: z.string().trim().min(10, t.validationReason),
   });
 
@@ -30,7 +31,7 @@ export function ApplyForm() {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
-    defaultValues: { name: "", sns_handle: "", reason: "" },
+    defaultValues: { name: "", sns_handle: "", email: "", reason: "" },
   });
 
   async function onSubmit(values: FormValues) {
@@ -79,6 +80,20 @@ export function ApplyForm() {
               <p className="text-xs text-rose-300">
                 {errors.sns_handle.message}
               </p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="apply-email">{t.formEmail}</Label>
+            <Input
+              id="apply-email"
+              type="email"
+              placeholder={t.formEmailPlaceholder}
+              autoComplete="email"
+              {...register("email")}
+            />
+            {errors.email && (
+              <p className="text-xs text-rose-300">{errors.email.message}</p>
             )}
           </div>
 

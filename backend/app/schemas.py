@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
 Language = Literal["KR", "JP"]
 
@@ -13,6 +13,7 @@ class ApplicationCreate(BaseModel):
 
     name: str = Field(min_length=1, max_length=100)
     sns_handle: str = Field(min_length=1, max_length=200)
+    email: EmailStr
     reason: str = Field(min_length=10, max_length=4000)
     language: Language
 

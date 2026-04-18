@@ -8,14 +8,12 @@ export function Hero() {
 
   return (
     <header className="mb-12">
-      <div className="relative h-64 sm:h-80 rounded-3xl overflow-hidden mb-8 group">
+      <div className="rounded-3xl overflow-hidden mb-8 group">
         <img
-          src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2070"
-          alt="Clinic Interior"
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          referrerPolicy="no-referrer"
+          src="/model.png"
+          alt="Bella Korea Clinic Ambassador"
+          className="w-full object-contain transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
       </div>
 
       <motion.div
@@ -23,6 +21,9 @@ export function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
+        <span className="inline-block mb-3 px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase bg-rose-50 text-rose-500 border border-rose-200">
+          Ambassador
+        </span>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">
           {t.title}
         </h1>

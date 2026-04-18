@@ -13,10 +13,10 @@ export function Faq() {
         {t.faqs.map((faq) => (
           <details
             key={faq.q}
-            className="group border border-slate-100 rounded-xl overflow-hidden bg-white"
+            className="group border border-slate-100 rounded-xl overflow-hidden bg-white hover:border-rose-100 transition-colors"
           >
-            <summary className="flex items-center gap-3 p-4 cursor-pointer hover:bg-slate-50 transition-colors list-none">
-              <ChevronRight className="w-4 h-4 transition-transform group-open:rotate-90 shrink-0" />
+            <summary className="flex items-center gap-3 p-4 cursor-pointer hover:bg-rose-50/40 transition-colors list-none">
+              <ChevronRight className="w-4 h-4 text-rose-400 transition-transform group-open:rotate-90 shrink-0" />
               <span className="text-slate-900 font-medium">{faq.q}</span>
             </summary>
             <div className="px-4 pb-4 pl-11 text-slate-600 leading-relaxed">

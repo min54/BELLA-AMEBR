@@ -20,6 +20,8 @@ export type LocalizedContent = {
   formNamePlaceholder: string;
   formSns: string;
   formSnsPlaceholder: string;
+  formEmail: string;
+  formEmailPlaceholder: string;
   formReason: string;
   formReasonPlaceholder: string;
   formSubmit: string;
@@ -30,6 +32,7 @@ export type LocalizedContent = {
   formErrorBody: string;
   validationName: string;
   validationSns: string;
+  validationEmail: string;
   validationReason: string;
   lineContact: string;
   footer: string;
@@ -75,7 +78,7 @@ export const content: Record<Language, LocalizedContent> = {
       },
       {
         q: "활동 기간은 어떻게 되나요?",
-        a: "선정 후 1년 동안 활동하게 되며, 3개월마다 방문하여 관리를 받게 됩니다.",
+        a: "활동 기간은 3개월~1년이며, 정기적으로 방문하여 관리를 받게 됩니다.",
       },
     ],
     formTitle: "지원하기",
@@ -83,6 +86,8 @@ export const content: Record<Language, LocalizedContent> = {
     formNamePlaceholder: "홍길동",
     formSns: "SNS 계정 (Instagram/TikTok)",
     formSnsPlaceholder: "@username",
+    formEmail: "이메일",
+    formEmailPlaceholder: "example@email.com",
     formReason: "지원 동기",
     formReasonPlaceholder: "간단히 자기소개와 지원 동기를 적어주세요.",
     formSubmit: "지원서 제출하기",
@@ -93,6 +98,7 @@ export const content: Record<Language, LocalizedContent> = {
     formErrorBody: "잠시 후 다시 시도해 주세요.",
     validationName: "성함을 입력해 주세요.",
     validationSns: "SNS 계정을 입력해 주세요.",
+    validationEmail: "올바른 이메일 주소를 입력해 주세요.",
     validationReason: "지원 동기를 10자 이상 입력해 주세요.",
     lineContact: "LINE으로 문의하기",
     footer: "© 2026 Bella Korea Clinic. All rights reserved.",
@@ -144,6 +150,8 @@ export const content: Record<Language, LocalizedContent> = {
     formNamePlaceholder: "山田 花子",
     formSns: "SNSアカウント (Instagram/TikTok)",
     formSnsPlaceholder: "@username",
+    formEmail: "メールアドレス",
+    formEmailPlaceholder: "example@email.com",
     formReason: "志望動機",
     formReasonPlaceholder: "簡単な自己紹介と志望動機をお書きください。",
     formSubmit: "応募フォームを送信する",
@@ -154,6 +162,7 @@ export const content: Record<Language, LocalizedContent> = {
     formErrorBody: "しばらくしてから再度お試しください。",
     validationName: "お名前を入力してください。",
     validationSns: "SNSアカウントを入力してください。",
+    validationEmail: "正しいメールアドレスを入力してください。",
     validationReason: "志望動機を10文字以上入力してください。",
     lineContact: "LINEでお問い合わせ",
     footer: "© 2026 Bella Korea Clinic. All rights reserved.",

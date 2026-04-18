@@ -6,6 +6,7 @@ export type Language = "KR" | "JP";
 export type ApplicationPayload = {
   name: string;
   sns_handle: string;
+  email: string;
   reason: string;
   language: Language;
 };

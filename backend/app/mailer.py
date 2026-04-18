@@ -23,6 +23,7 @@ def _build_subject_and_body(application: Application) -> tuple[str, str]:
         f"ID:        {application.id}\n"
         f"Name:      {application.name}\n"
         f"SNS:       {application.sns_handle}\n"
+        f"Email:     {application.email}\n"
         f"Language:  {application.language}\n"
         f"Submitted: {application.created_at.isoformat()}\n\n"
         f"Reason:\n{application.reason}\n"

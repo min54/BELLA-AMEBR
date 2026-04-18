@@ -29,6 +29,7 @@ def create_application(
     application = Application(
         name=payload.name,
         sns_handle=payload.sns_handle,
+        email=payload.email,
         reason=payload.reason,
         language=payload.language,
     )
