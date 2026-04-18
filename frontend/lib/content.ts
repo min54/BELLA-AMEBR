@@ -60,7 +60,7 @@ export const content: Record<Language, LocalizedContent> = {
       "기본적인 한국어 커뮤니케이션이 가능하신 분 (유창하지 않아도 OK)",
       "SNS(인스타그램, 틱톡 등) 활동이 활발하신 분",
       "뷰티와 자기관리에 관심이 많으신 분",
-      "정기적인 방문이 가능하신 분",
+      "정기적인 방문이 가능하신 분 (3개월 1번 가량)",
     ],
     galleryTitle: "클리닉 미리보기",
     faqTitle: "자주 묻는 질문",
